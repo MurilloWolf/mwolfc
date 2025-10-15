@@ -97,7 +97,7 @@ export default function ContactForm({ onClose }: { onClose?: () => void }) {
 
   return (
     <div className="space-y-4 py-4">
-      <div className="relative overflow-hidden rounded-lg bg-card/90 py-4 px-0 sm:p-6 sm:px-0">
+      <div className="relative overflow-hidden rounded-lg bg-transparent py-4 px-0 sm:p-6 sm:px-0">
         {status === "error" && errorMessage ? (
           <div className="mb-4 rounded-lg border border-destructive/40 bg-destructive/10 px-3 py-2 text-sm text-destructive animate-error-shake">
             {errorMessage}
@@ -168,7 +168,7 @@ export default function ContactForm({ onClose }: { onClose?: () => void }) {
           <span className="w-full border-t" />
         </div>
         <div className="relative flex justify-center text-xs uppercase">
-          <span className="bg-background px-2 text-muted-foreground">or</span>
+          <span className="bg-gray-100 px-2 text-muted-foreground">or</span>
         </div>
       </div>
       <Button

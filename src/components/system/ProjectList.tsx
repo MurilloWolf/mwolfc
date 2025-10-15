@@ -4,7 +4,18 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
-import { Badge } from "@/components/ui";
+import {
+  Badge,
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui";
+import Image from "next/image";
+import meImage from "../../../public/me.png";
 
 type ProjectCategory = "projects" | "prompts" | "articles" | "code-examples";
 
@@ -38,7 +49,7 @@ const PROJECTS: Project[] = [
     description:
       "Uma vitrine pessoal com foco em acessibilidade, microinteracoes e performance avancada.",
     href: "https://mwolf.dev",
-    linkLabel: "Ver projeto",
+    linkLabel: "View more",
     tags: ["Next.js", "React", "Tailwind"],
   },
   {
@@ -47,7 +58,7 @@ const PROJECTS: Project[] = [
     description:
       "Aplicacao white-label para conectar mentores e mentorados, com fluxos automatizados e analytics.",
     href: "https://github.com/murillowolf/mentorship-platform",
-    linkLabel: "Acessar repositorio",
+    linkLabel: "View more",
     tags: ["TypeScript", "Design System", "DX"],
   },
   {
@@ -56,7 +67,7 @@ const PROJECTS: Project[] = [
     description:
       "Colecao curada de prompts para IA focados em discovery de produto e brainstorming tecnico.",
     href: "https://github.com/murillowolf/prompt-library",
-    linkLabel: "Abrir colecao",
+    linkLabel: "View collection",
     tags: ["IA", "Product", "Pesquisa"],
   },
   {
@@ -65,7 +76,7 @@ const PROJECTS: Project[] = [
     description:
       "Artigo sobre estrategias para componentizar experimentos e manter consistencia em escala.",
     href: "https://murillowolf.medium.com/design-system-flexivel",
-    linkLabel: "Ler artigo",
+    linkLabel: "Read article",
     tags: ["Design System", "Leadership", "Processos"],
   },
   {
@@ -74,7 +85,7 @@ const PROJECTS: Project[] = [
     description:
       "Exemplo de implementacao de Server-Sent Events com React Server Components e Node.",
     href: "https://github.com/murillowolf/realtime-logs",
-    linkLabel: "Ver codigo",
+    linkLabel: "View code",
     tags: ["Node.js", "RSC", "Observability"],
   },
 ];
@@ -118,52 +129,56 @@ export default function ProjectList() {
         })}
       </div>
 
-      <div className="grid gap-6 md:grid-cols-2">
-        {filteredProjects.map((project) => (
-          <article
-            key={project.title}
-            className="flex h-full flex-col justify-between gap-4 rounded-2xl border border-border bg-white/80 p-6 shadow-sm backdrop-blur"
-          >
-            <div className="flex flex-col gap-3">
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <h3 className="text-xl font-semibold text-foreground">
-                    {project.title}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-muted-foreground">
-                    {project.description}
-                  </p>
-                </div>
-                <Badge
-                  variant="secondary"
-                  className="rounded-full bg-secondary/80"
-                >
-                  {PROJECT_CATEGORY_LABEL[project.category]}
-                </Badge>
-              </div>
-
-              <div className="flex flex-wrap items-center gap-2">
-                {project.tags.map((tag) => (
-                  <Badge
-                    key={`${project.title}-${tag}`}
-                    variant="outline"
-                    className="rounded-full border-dashed text-xs"
+      <div className="flex flex-col gap-6 bg-white/60 rounded-lg p-2">
+        <Table>
+          <TableBody className="w-full">
+            {filteredProjects.map((project, index) => (
+              <TableRow key={index} className="hover:bg-accent">
+                <TableCell className="min-w-xl max-w-2xl">
+                  <div className="flex flex-col">
+                    <span className="font-semibold text-md">
+                      {project.title}
+                    </span>
+                    <p className="text-sm text-muted-foreground">
+                      {project.description}
+                    </p>
+                    <Link
+                      href={project.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs w-full py-4 md:hidden inline-flex items-center gap-1 font-medium text-primary hover:underline"
+                    >
+                      {project.linkLabel}
+                      <ArrowUpRight className="h-4 w-4" />
+                    </Link>
+                    <div className="hidden md:flex mt-2  flex-wrap gap-2">
+                      {project.tags.map((tag, tagIndex) => (
+                        <Badge
+                          key={tagIndex}
+                          variant="outline"
+                          className="rounded-full border-muted-foreground/50 bg-transparent text-xs text-muted-foreground"
+                        >
+                          {tag}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+                </TableCell>
+                <TableCell className=" text-right md:w-28 lg:w-32">
+                  <Link
+                    href={project.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hidden md:inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
                   >
-                    {tag}
-                  </Badge>
-                ))}
-              </div>
-            </div>
-
-            <Link
-              href={project.href}
-              className="inline-flex items-center gap-2 text-sm font-medium text-primary transition hover:text-primary/80"
-            >
-              {project.linkLabel}
-              <ArrowUpRight className="h-4 w-4" />
-            </Link>
-          </article>
-        ))}
+                    {project.linkLabel}
+                    <ArrowUpRight className="h-4 w-4" />
+                  </Link>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
       </div>
     </div>
   );

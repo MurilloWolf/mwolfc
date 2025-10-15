@@ -115,7 +115,7 @@ export default function Home() {
 
         <section
           id="projects"
-          className="md:col-span-8 md:col-start-3 flex flex-col gap-6"
+          className="md:col-span-8 md:col-start-3 flex flex-col gap-6 mb-44"
         >
           <header>
             <h2 className="text-4xl font-bold tracking-tight sm:text-3xl">

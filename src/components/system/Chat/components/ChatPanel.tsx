@@ -211,7 +211,7 @@ export default function ChatPanel({
   };
 
   const containerClasses = cn(
-    "flex flex-col overflow-hidden rounded-2xl  shadow-2xl backdrop-blur-xl",
+    "flex flex-col overflow-hidden rounded-2xl shadow-2xl backdrop-blur-xl",
     variant === "full" && "h-full md:rounded-2xl",
     variant === "widget" &&
       "rounded-2xl h-[70vh] min-h-[360px] max-h-[calc(100vh-100px)] sm:h-[540px]",
@@ -219,7 +219,7 @@ export default function ChatPanel({
   );
 
   const contentClasses = cn(
-    "glass-scrollbar flex-1 overflow-y-auto overflow-x-hidden touch-pan-y  backdrop-blur-lg",
+    "bg-white/70 md:bg-white/40 glass-scrollbar flex-1 overflow-y-auto overflow-x-hidden touch-pan-y  backdrop-blur-lg",
     isWidget ? "px-3 py-3 sm:px-3.5" : "px-4 py-4",
     contentClassName
   );

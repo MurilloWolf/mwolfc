@@ -118,7 +118,7 @@ export default function Header() {
                 Send Me a Message <Send className=" h-4 w-4" />
               </Button>
             </AlertDialogTrigger>
-            <AlertDialogContent className="font-medium font-sans">
+            <AlertDialogContent className="font-medium font-sans bg-gray-100 rounded-lg">
               <AlertDialogHeader>
                 <AlertDialogTitle className="text-2xl">
                   Get in Touch
@@ -173,7 +173,7 @@ export default function Header() {
                   Send Me a Message <Send className=" h-4 w-4" />
                 </Button>
               </AlertDialogTrigger>
-              <AlertDialogContent className="font-medium font-sans">
+              <AlertDialogContent className="font-medium font-sans bg-gray-100 rounded-lg">
                 <AlertDialogHeader>
                   <AlertDialogTitle className="text-2xl">
                     Get in Touch

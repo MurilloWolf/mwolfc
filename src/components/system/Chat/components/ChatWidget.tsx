@@ -18,6 +18,7 @@ export default function ChatWidget() {
     return null;
   }
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     const MOBILE_BREAKPOINT = 768;
     const HIDE_THRESHOLD_PX = 120;

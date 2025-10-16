@@ -5,7 +5,6 @@ import { ArrowUpRight, CodeXml, MapPin, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui";
 import {
-  Footer,
   InfinitCarrousel,
   ProjectList,
   TestimonialSection,

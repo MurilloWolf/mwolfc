@@ -9,14 +9,14 @@ interface Experience {
   role: string;
   period: string;
   technologies: string[];
-  description: string;
+  description: string[];
   goals: string[];
 }
 const experiences: Experience[] = [
   {
     company: "Mercado Libre",
     role: "Sr Software Engineer",
-    period: "2022 - 2025",
+    period: "Oct 2022 - Jul 2025",
     technologies: [
       "Next.js",
       "TypeScript",
@@ -38,13 +38,16 @@ const experiences: Experience[] = [
       "Improved user intent understanding by 12% through integration with ChatGPT and LLM models.",
       "Implemented user interaction tracking with BigQuery, generating over 1 GB of data daily.",
     ],
-    description:
-      "Led the development of responsive web applications, improving user experience and performance metrics by 40%.",
+    description: [
+      "Worked closely with Product, UX, and Design teams within the Customer Experience (CX) area to ship user-centric features.",
+      "Led the development of user support solutions, including the chatbot and the case creation and resolution flow inside the CRM.",
+      "Owned observability for micro-frontend applications, ensuring usability, performance, and scalability across every Latin American country where Mercado Libre operates.",
+    ],
   },
   {
     company: "Trybe",
     role: "Middle Software Engineer",
-    period: "2020 - 2022",
+    period: "Feb 2020 - Oct 2022",
     technologies: [
       "JavaScript",
       "Node.js",
@@ -57,8 +60,13 @@ const experiences: Experience[] = [
       "PostgreSQL",
       "Docker",
     ],
-    description:
-      "Built and maintained multiple client projects, focusing on scalable architecture and clean code practices.",
+    description: [
+      "Developed a comprehensive educational platform providing development content, including instructional videos and coding examples, while tracking course progress.",
+      "Taught classes and addressed student inquiries on development topics, fostering a collaborative learning environment.",
+      "Automated various employee tasks through Slack integrations, enhancing operational efficiency.",
+      "Created automated tests to validate student projects, ensuring high quality and adherence to best practices.",
+      "Updated and maintained the lesson plans according to the market needs.",
+    ],
     goals: [
       "Built a learning platform for 2,400 students with video lessons, coding examples, and progress tracking.",
       "Conducted lectures and provided mentoring, fostering a collaborative learning environment.",
@@ -72,8 +80,11 @@ const experiences: Experience[] = [
     role: "Junior Developer",
     period: "Jan 2019 - Dec 2019",
     technologies: ["React", "Jquery", "Redux", "SCSS"],
-    description:
-      "Contributed to the development of the company's main product, collaborating with cross-functional teams.",
+    description: [
+      "Collaborated on enhancing user interfaces and improving overall user experience for a legal administration software using Next.js.",
+      "Implemented design adjustments and optimizations that led to increased user satisfaction and efficiency.",
+      "Worked closely with cross-functional teams to ensure seamless integration of front-end components.",
+    ],
     goals: [
       "Improved UX and UI for legal software, leading to 7 new client acquisitions.",
       "Collaborated with cross-functional teams to integrate front-end components seamlessly.",
@@ -84,9 +95,19 @@ const experiences: Experience[] = [
     company: "Eventou",
     role: "Intern Developer",
     period: "Jan 2018 - Dec 2018",
-    technologies: ["React", "Jquery", "Redux", "SCSS", "Bootstrap"],
-    description:
-      "Contributed to the development of the company's main product, collaborating with cross-functional teams.",
+    technologies: [
+      "React",
+      "React Native",
+      "Jquery",
+      "Redux",
+      "SCSS",
+      "Bootstrap",
+    ],
+    description: [
+      "Developed new interfaces and features for the event marketplace platform using React.",
+      "Enhanced user experience for mobile websites and made adjustments to native applications using React Native.",
+      "Created comprehensive documentation for software features and functionalities to streamline onboarding processes.",
+    ],
     goals: [
       "Fixed bugs on marketplace platform, enhancing user experience and satisfaction.",
       "Developed new pages and features, contributing to increase in user engagement.",
@@ -110,7 +131,7 @@ export default function ProfessionalExperience() {
   return (
     <section>
       <div className="flex flex-col gap-6 lg:flex-row lg:items-start">
-        <div className="w-full lg:w-60 lg:flex-shrink-0">
+        <div className="w-full lg:w-44 lg:flex-shrink-0">
           <div className="flex gap-2 overflow-x-auto pb-2 lg:flex-col lg:gap-0 lg:space-y-1 lg:overflow-visible lg:pb-0">
             {experiences.map((exp, index) => (
               <button
@@ -139,9 +160,13 @@ export default function ProfessionalExperience() {
               </p>
             </div>
 
-            <p className="text-sm text-foreground/80 leading-relaxed mb-4">
-              {experiences[selectedCompany].description}
-            </p>
+            <div className="mb-4 space-y-3 text-sm leading-relaxed text-foreground/80">
+              {experiences[selectedCompany].description.map(
+                (paragraph, descriptionIndex) => (
+                  <p key={descriptionIndex}>{paragraph}</p>
+                )
+              )}
+            </div>
             <div className="mb-4 border-l-2 border-[#9af6a3] pl-4">
               <h6 className="text-md font-medium text-foreground mb-2">
                 Key Achievements:

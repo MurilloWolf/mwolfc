@@ -84,6 +84,7 @@ export default function Header() {
           href="/"
           className=" text-lg font-semibold uppercase tracking-[0.3em] text-zinc-900 dark:text-zinc-100"
         >
+          <h1 className="hidden">Murillo Wolf Cavalheiro</h1>
           <span className="group inline-flex hover:tracking-normal transition-all duration-300 ease-in-out">
             m <span className="group-[&:hover]:hidden">.</span>
             <span className="hidden group-[&:hover]:block mr-2">urillo</span>

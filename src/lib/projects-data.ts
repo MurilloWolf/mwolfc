@@ -33,6 +33,18 @@ export const CATEGORY_ORDER: ProjectCategory[] = [
 
 export const PROJECTS: ProjectEntry[] = [
   {
+    slug: "the-art-of-talking-to-machines",
+    category: "articles",
+    title: "The Art of Talking to Machines",
+    description:
+      "A beginner-friendly guide to understanding AI and prompt engineering, with practical tips and a real-world resume optimization prompt.",
+    linkLabel: "Read Article",
+    tags: ["AI", "Prompt Engineering", "Education", "Tutorial"],
+    publishedAt: "2025-10-05",
+    readingTime: "8 min",
+    bodyFile: "the-art-of-talking-to-machines.mdx",
+  },
+  {
     slug: "parrot-gpt",
     category: "prompts",
     title: "Parrot GPT",
@@ -69,6 +81,22 @@ export const PROJECTS: ProjectEntry[] = [
     publishedAt: "2025-10-01",
     readingTime: "10 min",
     bodyFile: "chatbot-gpt.mdx",
+  },
+  {
+    slug: "there-is-no-good-software",
+    category: "articles",
+    title: "There Is No Good Software",
+    description: "A reflection on perfectionism in software development.",
+    linkLabel: "Read Article",
+    tags: [
+      "Software Development",
+      "Career",
+      "Personal Growth",
+      "Entrepreneurship",
+    ],
+    publishedAt: "2025-10-16",
+    readingTime: "7 min",
+    bodyFile: "there-is-no-good-software.mdx",
   },
 ];
 

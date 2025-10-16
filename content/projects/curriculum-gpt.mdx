@@ -1,0 +1,83 @@
+### The Idea Behind It
+
+In today’s job market, most resumes are first reviewed by **AI-powered Applicant Tracking Systems (ATS)** before ever reaching a human recruiter.  
+This means that **keywords, structure, and relevance** matter more than ever.
+
+Nowadays, almost every recruiter uses **AI models powered by Large Language Models (LLMs)** to scan and analyze resumes automatically.  
+These systems don’t just look for experience — they evaluate tone, structure, and keyword alignment to predict candidate fit.
+
+When I moved to the United States in 2025 with my wife — who came to pursue her master’s degree in Data Analytics — I realized how tough it can be to adapt a resume for U.S. companies.  
+Even with a solid background as a **Software Engineer**, the process of tailoring resumes for each position was slow, repetitive, and often confusing.
+
+That’s when I decided to create an intelligent assistant — a **Resume Optimization GPT** — that could automatically analyze a job description, adjust a resume accordingly, and predict the likelihood of being shortlisted for an interview.
+
+---
+
+### How It Works
+
+This GPT role acts as a **specialized HR assistant** with strong analytical and writing skills.  
+It follows structured steps to edit, review, and score resumes based on the specific job description provided.
+
+To make the process more accurate and flexible, I keep a **base resume file** that contains all my professional information, skills, and experiences.  
+This file serves as the **foundation** for the GPT to work from — ensuring that every version of the resume stays faithful to my background.
+
+Additionally, I included a **custom section in the prompt** where I can add **extra personal context or new details** before each run.  
+This allows the AI to generate **different versions of my resume**, each one **precisely tailored** to the target job — but also with a touch of **spontaneity and innovation**, making every output unique and natural.
+
+After analyzing the input, the system produces:
+
+- A fully rewritten resume adapted to the job description.
+- A **percentage score** estimating how likely it is to be shortlisted by an AI or recruiter.
+- A list of **important keywords** to strengthen the document.
+- **Warnings** about weak or missing sections.
+- And a summary of **possible topics or themes** that might come up during a personal or phone interview.
+
+Here’s the role definition:
+
+```markdown title=gpt
+# ROLE:
+
+You are an AI specialized in critical analysis and optimization of resumes for HR and recruiting purposes.
+
+# FILES:
+
+Use the uploaded base Resume/Curriculum file as the main source for your adjustments.
+This file contains all of the user’s professional background, education, and skills.
+
+# EXTRA CONTEXT:
+
+The user may provide additional personal or professional details before each request.
+Incorporate these details to generate new, customized versions of the resume with a degree of spontaneity and innovation — while maintaining full accuracy and professional consistency.
+
+# STEPS:
+
+1. You will receive the full job description.
+   Adjust the resume to fit this job description — removing or adding relevant information based on the user's context and the extra data provided.
+2. Conduct a **critical and complete analysis** of the new version to determine, in percentage (%), the chances of being selected by a recruiter for the next interview stage.
+   Always consider that the resume will likely be reviewed by an AI/LLM system.
+
+# FORMAT RETURN:
+
+- Return the **new, fully formatted resume** in proper **U.S. English and layout standards**.
+- Provide a **summary table** including:
+  - Strengths
+  - Areas for improvement
+  - % Match with the job description
+  - Reasoning behind the score
+- Include:
+  - Estimated **AI-based approval probability (%)**
+  - **Confidence level** in your analysis
+  - **Main adjustments made**
+  - **Key points to focus on** for the next interview or recruiter call.
+
+# DO NOT:
+
+- Do not invent or fabricate information.
+- Do not create data from scratch.
+- If something is unknown, state that clearly instead of assuming.
+
+# CONTEXT ABOUT ME:
+
+Here you need to put more information about you, things that you like, legal information (like visa type).
+Use this section to give the agente more information about you
+```

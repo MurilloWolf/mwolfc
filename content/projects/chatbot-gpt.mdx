@@ -1,0 +1,123 @@
+### The Idea Behind the Prompt
+
+When building my personal project, I wanted to integrate a **chat interface** capable of answering questions from visitors naturally and consistently.
+
+Like "<i>You don't need a FAQ page anymore if you can actually match what the user is looking for with the information that you have on your website</i>". To do that, you just need to train an AI correctly and provide rich information.
+
+Most open-source chat solutions or prebuilt tools were expensive, limited, or too generic — they lacked **context control** and **custom tone management**.
+
+So instead of embedding a pre-trained bot, I built my own **prompt framework** from scratch.
+
+This custom-designed prompt (the “mind” behind Evee) defines:
+
+- How the assistant behaves
+- What it can and cannot answer
+- The tone, language, and politeness level
+- How it handles missing or unknown information
+- And how it provides structured responses for the front-end UI
+
+It’s a **modular, low-cost system** that can be reused in multiple contexts — such as project FAQs, small business websites, or product help desks — without any external dependencies.
+
+---
+
+### Building the Prompt Architecture
+
+At its core, the prompt establishes a **controlled personality and knowledge boundary**.
+
+Instead of relying on fine-tuning or additional training data, I focused on **systematic prompt layering**:
+
+1. **Role Definition** – defines who the assistant is and its mission.
+2. **Context Layer** – contains basic conversational memory and metadata (like time of day, username, previous messages).
+3. **Constraints Layer** – limits what the bot can and cannot respond to (e.g., no personal or legal advice).
+4. **Instruction Layer** – guides the assistant’s tone, writing style, and fallback responses.
+5. **Knowledge Layer** – provides concise, factual reference data that the model can recall when needed.
+6. **Stop Layer** - Prevents the bot from responding to things that it's not designed to do, and includes a rate limit to prevent security abuse.
+
+This approach ensures **predictable, safe, and context-aware outputs**, while remaining extremely cost-effective — even on smaller GPT endpoints.
+
+---
+
+### Why This Matters
+
+Prompt engineering like this goes beyond writing text for a model — it’s **designing behavior**.
+
+By defining personality, tone, and rules directly in the prompt, I eliminated the need for:
+
+- Complex back-end logic
+- Heavy API chaining
+- Or large-scale databases
+
+As a result, the system can run **with minimal infrastructure**, producing consistent and human-like responses with almost no hallucinations or off-topic replies.
+
+---
+
+### Keeping the Prompt Private (But Functional)
+
+Since the prompt is the **intellectual property** behind the assistant, it’s not exposed in the code.  
+Instead, it’s stored securely in the server layer, where it’s injected at runtime whenever the chat API is called.
+
+Here’s a simplified example of a part of the prompt.
+
+<i>The prompt that I'm actually using on this website has over 500 lines</i>
+
+```json title="bot-prompt.ts"
+{
+  "bot_knowledge": {
+    "base": ["Business hours", "Email contact: example@gmail.com"],
+    "web_site": {
+      "site_name": "",
+      "url": "http://www.mwolfc.com",
+      "routes": [
+        {
+          "path": "/",
+          "title": "mwolfc homepage",
+          "sections": [
+            {
+              "key": "header",
+              "title": "Header",
+              "description": "Fixed bar with 'mwolfc' word and links to the same page and a call to action button on the right 'send me a message'",
+              "link": "/",
+              "source": "src/components/system/Header.tsx#L5",
+              "dataPoints": {
+                "navLinks": ["/", "/#projects", "/#testimonials", "/#contact"],
+                "primaryCta": "Send me a Message"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+```
+
+---
+
+### Automated Knowledge Base Generation
+
+What makes this system even more powerful is that the knowledge base shown in the JSON example above isn't manually created — **it's generated automatically**.
+
+I built a separate prompt that analyzes the entire front-end project structure, reading through components, pages, routes, and content to create a comprehensive knowledge base. This prompt scans:
+
+- All React components and their props
+- Page routes and their purposes
+- Content structure and metadata
+- Navigation patterns and user flows
+- Available features and functionality
+
+This automated approach means the chatbot's knowledge stays **always up-to-date** with the actual codebase. When I add new features or modify existing ones, the knowledge base can be regenerated to reflect these changes, ensuring the assistant always provides accurate information about the current state of the application.
+
+---
+
+### Interested in Implementing This for Your Business?
+
+If you're interested in implementing this custom chatbot solution for your company or project, I'd love to help. This system can be adapted for:
+
+- **E-commerce websites** (product information, customer support)
+- **SaaS platforms** (feature explanations, user onboarding)
+- **Corporate websites** (company information, contact routing)
+- **Documentation sites** (technical support, API guidance)
+
+The solution is **cost-effective, scalable, and completely customizable** to match your brand voice and business needs.
+
+**Ready to get started?** [Contact me](/contact) to discuss how we can build a smart chatbot tailored specifically for your business.

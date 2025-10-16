@@ -39,12 +39,36 @@ export const PROJECTS: ProjectEntry[] = [
     description:
       "A model that explains complex topics in a way that is simple, structured, and easy to understand for people without prior knowledge of the subject.",
     linkLabel: "View More",
-    tags: ["IA", "GPT", "Prompt Engineering"],
+    tags: ["IA", "GPT", "Prompt Engineering", "Education"],
     publishedAt: "2025-10-15",
     readingTime: "6 min",
     externalUrl:
       "https://chatgpt.com/g/g-68d6adedac3c8191a5d42b4dfd442f8c-parrot",
     bodyFile: "parrot-gpt.mdx",
+  },
+  {
+    slug: "curriculum-gpt",
+    category: "prompts",
+    title: "Performance Curriculum",
+    description:
+      "A agent that personalizes my curriculum for job applications.",
+    linkLabel: "View More",
+    tags: ["IA", "GPT", "Prompt Engineering", "Curriculum"],
+    publishedAt: "2025-10-10",
+    readingTime: "4 min",
+    bodyFile: "curriculum-gpt.mdx",
+  },
+  {
+    slug: "chatbot-gpt",
+    category: "prompts",
+    title: "The better prompt for Chatbots",
+    description:
+      "A carefully engineered prompt architecture for a chatbot that provides accurate answers",
+    linkLabel: "View More",
+    tags: ["IA", "GPT", "Prompt Engineering", "Chatbot", "TypeScript", "API"],
+    publishedAt: "2025-10-01",
+    readingTime: "10 min",
+    bodyFile: "chatbot-gpt.mdx",
   },
 ];
 

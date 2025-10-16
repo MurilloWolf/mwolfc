@@ -10,9 +10,7 @@ export default function Avatar(props: IAvatarProps) {
   const { message } = props;
   return (
     <div
-      className={`flex bg-[#d5fe46] h-10 w-10 shrink-0 items-center justify-center rounded-full ${
-        message.sender === "bot" ? "bg-black" : "bg-white/60"
-      }`}
+      className={`flex bg-[#d5fe46] h-10 w-10 shrink-0 items-center justify-center rounded-full bg-black/80`}
     >
       {message.sender === "bot" ? (
         <Image
@@ -21,7 +19,7 @@ export default function Avatar(props: IAvatarProps) {
           className="h-full w-full rounded-full object-cover"
         />
       ) : (
-        <User className="h-5 w-5 text-black font-bold stroke-2" />
+        <User className="h-5 w-5 text-white font-bold stroke-2" />
       )}
     </div>
   );

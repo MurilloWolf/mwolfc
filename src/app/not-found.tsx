@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Compass, Home, Sparkles } from "lucide-react";
+import { Compass, Home } from "lucide-react";
 
 import { Badge, Button } from "@/components/ui";
 

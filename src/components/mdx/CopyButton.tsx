@@ -18,7 +18,7 @@ export default function CopyButton({ value }: CopyButtonProps) {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (error) {
-      console.error("Falha ao copiar codigo", error);
+      console.error("Failed to copy code", error);
     }
   };
 
@@ -29,7 +29,7 @@ export default function CopyButton({ value }: CopyButtonProps) {
       variant="ghost"
       className="h-7 px-2 text-xs font-medium text-muted-foreground hover:bg-muted"
     >
-      {copied ? <span>Copied !</span> : <Copy className="h-4 w-4" />}
+      {copied ? <span>Copied!</span> : <Copy className="h-4 w-4" />}
     </Button>
   );
 }

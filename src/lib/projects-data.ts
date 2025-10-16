@@ -49,9 +49,9 @@ export const PROJECTS: ProjectEntry[] = [
     category: "prompts",
     title: "Parrot GPT",
     description:
-      "A model that explains complex topics in a way that is simple, structured, and easy to understand for people without prior knowledge of the subject.",
+      "A model that explains complex topics in a simple, structured way so stakeholders without technical backgrounds can follow along.",
     linkLabel: "View More",
-    tags: ["IA", "GPT", "Prompt Engineering", "Education"],
+    tags: ["AI", "GPT", "Prompt Engineering", "Education"],
     publishedAt: "2025-10-15",
     readingTime: "6 min",
     externalUrl:
@@ -63,9 +63,9 @@ export const PROJECTS: ProjectEntry[] = [
     category: "prompts",
     title: "Performance Curriculum",
     description:
-      "A agent that personalizes my curriculum for job applications.",
+      "An agent that personalizes my resume for product and engineering job applications.",
     linkLabel: "View More",
-    tags: ["IA", "GPT", "Prompt Engineering", "Curriculum"],
+    tags: ["AI", "GPT", "Prompt Engineering", "Curriculum"],
     publishedAt: "2025-10-10",
     readingTime: "4 min",
     bodyFile: "curriculum-gpt.mdx",
@@ -75,9 +75,9 @@ export const PROJECTS: ProjectEntry[] = [
     category: "prompts",
     title: "The better prompt for Chatbots",
     description:
-      "A carefully engineered prompt architecture for a chatbot that provides accurate answers",
+      "A carefully engineered prompt architecture for a chatbot that provides accurate, on-brand answers at scale.",
     linkLabel: "View More",
-    tags: ["IA", "GPT", "Prompt Engineering", "Chatbot", "TypeScript", "API"],
+    tags: ["AI", "GPT", "Prompt Engineering", "Chatbot", "TypeScript", "API"],
     publishedAt: "2025-10-01",
     readingTime: "10 min",
     bodyFile: "chatbot-gpt.mdx",

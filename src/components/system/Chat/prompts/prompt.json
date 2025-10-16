@@ -72,7 +72,7 @@
               "link": "/",
               "source": "src/components/system/Header.tsx#L1",
               "dataPoints": {
-                "navLinks": ["#about", "#projects", "#testimonials"],
+                "navLinks": ["#about", "#projects", "#testimonials", "#experience"],
                 "primaryCta": "Send Me a Message",
                 "mobile": "Sheet menu replicates navigation and contact button"
               }
@@ -81,13 +81,13 @@
               "key": "hero",
               "title": "Hero",
               "description": "Intro section presenting Murillo, location, tagline, and main calls to action.",
-              "link": "#inicio",
-              "source": "src/app/page.tsx#L20",
+              "link": "#hero",
+              "source": "src/app/page.tsx#L18",
               "dataPoints": {
-                "badges": ["Software Engineer", "Alexandria, VA"],
-                "tagline": "I solve problems with beautiful design, good code and some coffee. My goal is to build products that are functional and joyful.",
+                "badges": ["Software Engineer", "Alexandria, Virginia"],
+                "tagline": "I build modern customer experience platforms for companies throughout Virginia and the Mid-Atlantic.",
                 "primaryCta": "Projects that I'm proud of",
-                "secondaryCta": "My Experience (#testimonials)"
+                "secondaryCta": "Professional Experience (#experience)"
               }
             },
             {
@@ -384,14 +384,14 @@
       "metadata": {
         "layout": {
           "source": "src/app/layout.tsx#L1",
-          "title": "mwolfc | Portf\u00f3lio",
-          "description": "Portf\u00f3lio criado com Next.js, Tailwind CSS e shadcn/ui."
+          "title": "Murillo Wolf | Senior Software Engineer in Virginia",
+          "description": "Senior software engineer based in Alexandria, Virginia focused on customer experience platforms and prompt engineering."
         },
         "assets": [
           {
             "key": "portrait",
             "path": "public/me.png",
-            "usedBy": ["src/app/page.tsx#L84"]
+            "usedBy": ["src/app/page.tsx#L88"]
           },
           {
             "key": "tech-logos",

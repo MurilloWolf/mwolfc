@@ -278,7 +278,7 @@ const collectMessages = (parsed: Record<string, unknown>, fallback: string) => {
       try {
         messages.push(JSON.stringify(obj));
       } catch (error) {
-        console.error("Falha ao serializar mensagem do assistente:", error);
+        console.error("Failed to serialise assistant message:", error);
       }
       return;
     }
@@ -324,13 +324,13 @@ export async function sendChatCompletion(
   const { userName, timeOfDay, currentQuestion, history } = payload;
 
   if (!currentQuestion) {
-    throw new Error("Pergunta atual não informada.");
+    throw new Error("Missing current question.");
   }
 
   const apiKey = process.env.OPENAI_API_KEY ?? process.env.OPENAI_API_KEY;
   if (!apiKey) {
     throw new Error(
-      "Variável OPENAI_API_KEY ou OPENAI_API_KEY não configurada."
+      "Environment variables OPENAI_API_KEY or NEXT_PUBLIC_OPENAI_API_KEY are not configured."
     );
   }
 
@@ -338,7 +338,7 @@ export async function sendChatCompletion(
   const systemPrompt = buildSystemPrompt(template);
   const userPrompt = buildUserPrompt(template, {
     userName,
-    timeOfDay: timeOfDay || "dia",
+    timeOfDay: timeOfDay || "day",
     currentQuestion,
     history: Array.isArray(history) ? history : [],
   });
@@ -358,7 +358,7 @@ export async function sendChatCompletion(
   const data = await response.json();
 
   if (!response.ok) {
-    const message = data?.error?.message ?? "Falha ao consultar a OpenAI.";
+    const message = data?.error?.message ?? "Failed to query OpenAI.";
     throw new Error(message);
   }
 
@@ -372,7 +372,7 @@ export async function sendChatCompletion(
       parsed = JSON.parse(assistantRaw);
     } catch (error) {
       console.error(
-        "Falha ao interpretar a resposta do assistente como JSON:",
+        "Failed to parse assistant response as JSON:",
         error
       );
       const match = assistantRaw.match(/\{[\s\S]*\}/);
@@ -381,12 +381,12 @@ export async function sendChatCompletion(
           parsed = JSON.parse(match[0]);
         } catch (innerError) {
           console.error(
-            "Falha ao converter conteúdo do assistente em JSON:",
+            "Failed to convert assistant content into JSON:",
             innerError
           );
         }
       } else {
-        console.error("Resposta do assistente não está em JSON.");
+        console.error("Assistant response is not valid JSON.");
       }
     }
   }

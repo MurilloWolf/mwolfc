@@ -2,9 +2,9 @@ import { Message } from "../types";
 import { RateLimitViolation } from "../utils/rate-limit";
 
 export const ASSISTANT_FALLBACK_MESSAGE =
-  "Desculpe, não consegui gerar uma resposta agora. Tente novamente em instantes.";
+  "Sorry, I couldn't generate a response right now. Please try again in a moment.";
 
-export const DEFAULT_USER_NAME = "Visitante";
+export const DEFAULT_USER_NAME = "Visitor";
 
 export const INITIAL_MESSAGE: Message = {
   id: "welcome",

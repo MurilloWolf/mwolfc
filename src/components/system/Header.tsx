@@ -1,7 +1,8 @@
 "use client";
 import type { MouseEvent } from "react";
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, Send } from "lucide-react";
 
 import {
@@ -22,28 +23,44 @@ import { cn } from "@/lib/utils";
 import ContactForm from "./ContactForm";
 
 const navItems = [
-  { href: "#about", label: "About" },
-  { href: "#projects", label: "Projects" },
-  { href: "#testimonials", label: "Job Experience" },
+  { hash: "about", label: "About" },
+  { hash: "projects", label: "Projects" },
+  { hash: "testimonials", label: "Testimonials" },
+  { hash: "experience", label: "Experience" },
 ];
 
 export default function Header() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [isSheetOpen, setIsSheetOpen] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+
+  const navLinks = useMemo(
+    () =>
+      navItems.map((item) => ({
+        ...item,
+        href: isHome ? `#${item.hash}` : `/#${item.hash}`,
+      })),
+    [isHome]
+  );
 
   const handleNavClick = useCallback(
     (
       event: MouseEvent<HTMLAnchorElement>,
-      href: string,
+      hash: string,
       shouldCloseSheet = false
     ) => {
-      if (typeof window === "undefined" || !href.startsWith("#")) {
+      if (!isHome || typeof window === "undefined") {
+        if (shouldCloseSheet) {
+          setIsSheetOpen(false);
+        }
         return;
       }
 
       event.preventDefault();
 
-      const targetId = href.slice(1);
+      const href = `#${hash}`;
+      const targetId = hash;
       const targetElement = document.getElementById(targetId);
 
       if (!targetElement) {
@@ -75,7 +92,7 @@ export default function Header() {
 
       scrollToTarget();
     },
-    [setIsSheetOpen]
+    [isHome, setIsSheetOpen]
   );
   return (
     <header className="font-mono sticky top-0 z-50 border-b border-white/20 bg-white/95 backdrop-blur-md transition-colors supports-[backdrop-filter]:bg-white/85 dark:border-white/10 dark:bg-zinc-900/70">
@@ -98,11 +115,11 @@ export default function Header() {
         </Link>
 
         <nav className="hidden items-center gap-8 text-sm font-medium text-muted-foreground md:flex">
-          {navItems.map((item) => (
+          {navLinks.map((item) => (
             <Link
-              key={item.href}
+              key={item.hash}
               href={item.href}
-              onClick={(event) => handleNavClick(event, item.href)}
+              onClick={isHome ? (event) => handleNavClick(event, item.hash) : undefined}
               className="transition-colors hover:text-foreground"
             >
               {item.label}
@@ -137,7 +154,7 @@ export default function Header() {
               variant="ghost"
               size="icon"
               className="h-10 w-10 md:hidden"
-              aria-label="Abrir menu"
+              aria-label="Open menu"
             >
               <Menu className="h-5 w-5" />
             </Button>
@@ -154,11 +171,13 @@ export default function Header() {
               mwolfc
             </SheetTitle>
             <nav className="font-sans flex flex-col gap-4 text-base font-medium text-neutral-600">
-              {navItems.map((item) => (
+              {navLinks.map((item) => (
                 <Link
-                  key={item.href}
+                  key={item.hash}
                   href={item.href}
-                  onClick={(event) => handleNavClick(event, item.href, true)}
+                  onClick={(event) =>
+                    handleNavClick(event, item.hash, true)
+                  }
                   className="transition-colors hover:text-foreground/80"
                 >
                   {item.label}

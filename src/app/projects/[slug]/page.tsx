@@ -25,13 +25,49 @@ export async function generateMetadata({
 
   if (!project) {
     return {
-      title: "Projeto nao encontrado",
+      title: "Project not found",
     };
   }
 
+  const configuredSiteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+  const fallbackSiteUrl = "https://www.murillowolf.com";
+  const normalizedSiteUrl = configuredSiteUrl
+    ? configuredSiteUrl.startsWith("http")
+      ? configuredSiteUrl
+      : `https://${configuredSiteUrl}`
+    : fallbackSiteUrl;
+  const canonical = `/projects/${project.slug}`;
+  const absoluteUrl = `${normalizedSiteUrl.replace(/\/$/, "")}${canonical}`;
+  const title = `${project.title} | Murillo Wolf`;
+
   return {
-    title: `${project.title} · mwolfc`,
+    title,
     description: project.description,
+    alternates: {
+      canonical,
+    },
+    openGraph: {
+      type: "article",
+      url: absoluteUrl,
+      title,
+      description: project.description,
+      siteName: "Murillo Wolf Portfolio",
+      locale: "en_US",
+      images: [
+        {
+          url: `${normalizedSiteUrl}/me.png`,
+          width: 1200,
+          height: 1200,
+          alt: `${project.title} case study by Murillo Wolf`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description: project.description,
+      images: [`${normalizedSiteUrl}/me.png`],
+    },
   };
 }
 
@@ -72,7 +108,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
     mdxContent = content;
   } catch (error) {
-    console.error(`Falha ao carregar MDX para o slug ${slug}:`, error);
+    console.error(`Failed to load MDX for project slug ${slug}:`, error);
     notFound();
   }
 

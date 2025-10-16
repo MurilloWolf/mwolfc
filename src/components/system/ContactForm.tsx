@@ -70,7 +70,7 @@ export default function ContactForm({ onClose }: { onClose?: () => void }) {
     setErrorMessage("");
 
     try {
-      await new Promise((resolve, reject) => setTimeout(resolve, 900));
+      await new Promise((resolve) => setTimeout(resolve, 900));
 
       setFormData({ name: "", email: "", message: "" });
       setStatus("success");

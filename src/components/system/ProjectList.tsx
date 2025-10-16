@@ -8,87 +8,15 @@ import {
   Badge,
   Table,
   TableBody,
-  TableCaption,
   TableCell,
-  TableHead,
-  TableHeader,
   TableRow,
 } from "@/components/ui";
-import Image from "next/image";
-import meImage from "../../../public/me.png";
-
-type ProjectCategory = "projects" | "prompts" | "articles" | "code-examples";
-
-interface Project {
-  category: ProjectCategory;
-  title: string;
-  description: string;
-  href: string;
-  linkLabel: string;
-  tags: string[];
-}
-
-const PROJECT_CATEGORY_LABEL: Record<ProjectCategory, string> = {
-  projects: "Projetos",
-  prompts: "Prompts",
-  articles: "Artigos",
-  "code-examples": "Exemplos de codigo",
-};
-
-const CATEGORY_ORDER: ProjectCategory[] = [
-  "projects",
-  "prompts",
-  "articles",
-  "code-examples",
-];
-
-const PROJECTS: Project[] = [
-  {
-    category: "projects",
-    title: "MWolf Portfolio",
-    description:
-      "Uma vitrine pessoal com foco em acessibilidade, microinteracoes e performance avancada.",
-    href: "https://mwolf.dev",
-    linkLabel: "View more",
-    tags: ["Next.js", "React", "Tailwind"],
-  },
-  {
-    category: "projects",
-    title: "Plataforma de Mentoria",
-    description:
-      "Aplicacao white-label para conectar mentores e mentorados, com fluxos automatizados e analytics.",
-    href: "https://github.com/murillowolf/mentorship-platform",
-    linkLabel: "View more",
-    tags: ["TypeScript", "Design System", "DX"],
-  },
-  {
-    category: "prompts",
-    title: "Prompt Library",
-    description:
-      "Colecao curada de prompts para IA focados em discovery de produto e brainstorming tecnico.",
-    href: "https://github.com/murillowolf/prompt-library",
-    linkLabel: "View collection",
-    tags: ["IA", "Product", "Pesquisa"],
-  },
-  {
-    category: "articles",
-    title: "Por tras de um Design System flexivel",
-    description:
-      "Artigo sobre estrategias para componentizar experimentos e manter consistencia em escala.",
-    href: "https://murillowolf.medium.com/design-system-flexivel",
-    linkLabel: "Read article",
-    tags: ["Design System", "Leadership", "Processos"],
-  },
-  {
-    category: "code-examples",
-    title: "Streaming de logs em tempo real",
-    description:
-      "Exemplo de implementacao de Server-Sent Events com React Server Components e Node.",
-    href: "https://github.com/murillowolf/realtime-logs",
-    linkLabel: "View code",
-    tags: ["Node.js", "RSC", "Observability"],
-  },
-];
+import {
+  CATEGORY_ORDER,
+  PROJECTS,
+  PROJECT_CATEGORY_LABEL,
+  type ProjectCategory,
+} from "@/lib/projects-data";
 
 export default function ProjectList() {
   const [activeFilter, setActiveFilter] = useState<ProjectCategory>("projects");
@@ -143,9 +71,7 @@ export default function ProjectList() {
                       {project.description}
                     </p>
                     <Link
-                      href={project.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href={`/projects/${project.slug}`}
                       className="text-xs w-full py-4 md:hidden inline-flex items-center gap-1 font-medium text-primary hover:underline"
                     >
                       {project.linkLabel}
@@ -166,9 +92,7 @@ export default function ProjectList() {
                 </TableCell>
                 <TableCell className=" text-right md:w-28 lg:w-32">
                   <Link
-                    href={project.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href={`/projects/${project.slug}`}
                     className="hidden md:inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
                   >
                     {project.linkLabel}

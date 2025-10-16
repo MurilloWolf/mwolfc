@@ -1,0 +1,121 @@
+## I Built a GPT Teacher for My Wife
+
+> **TL;DR:** I built a custom GPT prompt—**Parrot**—to teach data analytics to a non-technical learner (my wife). It turned confusion into clarity and helped her consistently achieve top grades.
+
+When my wife decided to pursue her master’s degree in **Data Analytics**, she faced a big challenge.  
+Coming from a **Digital Marketing** background, she didn’t have a strong foundation in **IT, programming, or math**—three pillars of data analytics.
+
+At first, she struggled to understand technical concepts, solve exercises, and complete assignments.  
+Even though she’s incredibly smart and hardworking, the gap between marketing and analytics felt overwhelming.
+
+That’s when I built a **custom GPT prompt**, which I later named **Parrot**.
+
+---
+
+### What Is Parrot?
+
+<div className="mt-6 flex flex-col gap-6 md:flex-row md:items-start">
+  <img
+    src="/articles/parrot-img.png"
+    alt="Concept illustration: Parrot GPT acting as a friendly AI teacher"
+    className="w-full max-w-sm rounded-xl border border-muted"
+  />
+
+  <div className="flex-1 space-y-4">
+    <div className="space-y-2">
+      <div>
+        <strong>Parrot</strong> is a custom AI teaching assistant designed to
+        simplify complex topics for people without technical backgrounds.
+      </div>
+      <div>
+        It explains every concept step by step, using simple language, clear
+        logic, and real-world examples.
+      </div>
+    </div>
+    <h4 className="font-semibold">Why this name?</h4>
+    <div style={{ borderLeft: "4px solid #b7f2cb", padding: "0.5rem 1rem" }}>
+      I’ve always been the kind of person who’s curious about everything—life,
+      culture, technology, and beyond. I often share random facts and interesting
+      bits of knowledge, and my wife used to call me a <i>parrot</i> because I
+      could talk a little about everything. That’s where the name <b>Parrot GPT</b>
+      came from.
+    </div>
+
+  </div>
+</div>
+
+---
+
+### How Parrot Works
+
+Parrot follows a practical structure inspired by great teaching:
+
+- It **breaks down topics numerically** (1, 2, 3…).
+- It **includes examples and analogies** for each concept.
+- It **explains the reasoning behind every answer**—not just the result.
+- It creates a **Mini Dictionary of Terms & Abbreviations** for each conversation to build technical vocabulary naturally.
+- And if it doesn’t know something? It says so clearly—no fabricated facts.
+
+---
+
+### The Impact on Learning
+
+The results have been real and measurable. Using Parrot, my wife now:
+
+- Understands the logic behind formulas and algorithms.
+- Solves exercises confidently and faster.
+- Submits clearer, well-structured assignments.
+- And most importantly—she’s consistently earning **top grades** in her class.
+
+Beyond grades, her **confidence** in technical subjects has skyrocketed. She’s no longer intimidated by code or equations—and she’s genuinely enjoying data analytics.
+
+---
+
+### Why I’m Sharing This
+
+I built Parrot out of love—to help someone I care about learn something new.  
+After seeing how well it worked, I realized this approach can help **anyone** bridging the gap between **non-technical backgrounds** and **technical studies**.
+
+If you—or someone you know—are struggling with a data-heavy course, a well-structured teaching prompt like Parrot can turn frustration into mastery.
+
+```markdown title=gpt
+# ROLE:
+
+Name: Parrot
+Purpose: To explain complex topics in a way that is simple, structured, and easy to understand for people without prior knowledge of the subject.
+
+## Model Definition:
+
+You are a specialized teacher who understands complex topics. Your role is to teach students who have no prior background knowledge of certain subjects.
+
+## Answer Guidelines:
+
+- Do not provide an answer if you are unsure of the result.
+- If you don’t know something, clearly state that you don’t.
+- Only answer when you have high confidence in the accuracy of your response.
+- Do not invent facts or data.
+- Use web searches when necessary.
+
+## Teaching Guidelines:
+
+- Explain using numbered points (1, 2, 3, …).
+- Every response must include a clear explanation of your reasoning.
+- Always explain why you chose that specific answer or approach.
+- Assume the student has no advanced knowledge of any topic.
+- Break down explanations into beginner-friendly steps.
+- Use at least two examples to illustrate each concept or part of it.
+
+## Communication Style:
+
+Use simple, clear language while keeping necessary technical terms.
+When discussing advanced or abstract topics, include a visual illustration or diagram to support understanding.
+
+## Problem Solving:
+
+Always present a step-by-step visual flow for any solution or method you propose, and explain what to do and why, using examples.
+
+## Initial Response:
+
+- In the initial response of every conversation, always include:
+- A Mini Dictionary of Terms & Abbreviations (as a tabl
+```

@@ -79,11 +79,9 @@ export default function Header() {
   );
   return (
     <header className="font-mono sticky top-0 z-50 border-b border-white/20 bg-white/95 backdrop-blur-md transition-colors supports-[backdrop-filter]:bg-white/85 dark:border-white/10 dark:bg-zinc-900/70">
-      {/* Desktop */}
-
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:h-12 p-4 sm:px-6 lg:px-8">
         <Link
-          href="#"
+          href="/"
           className=" text-lg font-semibold uppercase tracking-[0.3em] text-zinc-900 dark:text-zinc-100"
         >
           <span className="group inline-flex hover:tracking-normal transition-all duration-300 ease-in-out">

@@ -327,10 +327,10 @@ export async function sendChatCompletion(
     throw new Error("Pergunta atual não informada.");
   }
 
-  const apiKey = process.env.VELOX_OPENAI_API_KEY ?? process.env.OPENAI_API_KEY;
+  const apiKey = process.env.OPENAI_API_KEY ?? process.env.OPENAI_API_KEY;
   if (!apiKey) {
     throw new Error(
-      "Variável VELOX_OPENAI_API_KEY ou OPENAI_API_KEY não configurada."
+      "Variável OPENAI_API_KEY ou OPENAI_API_KEY não configurada."
     );
   }
 

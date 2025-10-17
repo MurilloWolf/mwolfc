@@ -40,12 +40,13 @@ export default function Home() {
                 </Badge>
               </div>
               <p className="w-full text-sm sm:text-lg text-[#121212] md:text-[14px] sm:w-3/4 leading-normal">
-                I build modern customer experience platforms for companies
-                throughout Virginia and the Mid-Atlantic. From concept to
-                launch, I blend human-centered design with resilient code and
-                keep everything fueled by a strong cup of coffee.
-                <br /> My goal is to deliver products that are fast, inclusive,
-                and memorable for the people who rely on them every day.
+                I solve problems with beautiful design, good code and some
+                <span className="text-[#5d3427] font-semibold">
+                  {" "}
+                  coffee.
+                </span>{" "}
+                <br /> My goal is to build products that are not only functional
+                but also a joy to use.
               </p>
             </div>
 
@@ -101,15 +102,14 @@ export default function Home() {
                 Keep it simple
               </h2>
               <p className="w-full text-sm sm:text-lg text-[#121212] md:text-[14px]  leading-normal">
-                I believe technology should make life easier, not harder.
-                Northern Virginia teams trust me to cut through noise, focus on
-                measurable outcomes, and launch dependable products with
-                confidence.
+                I believe that technologies should be make life easier, not
+                harder. Sometimes we get so caught up in the latest trends and
+                buzzwords that we forget the most important thing: the user.
               </p>
               <p className="w-full text-sm sm:text-lg text-[#121212] md:text-[14px]  leading-normal">
                 <span className="bg-[#9af6a380] ">
-                  Maybe I don&apos;t chase the flashiest trends, but I do ship the
-                  most useful solutions.
+                  Maybe I don&apos;t chase the flashiest trends, but I do ship
+                  the most useful solutions.
                 </span>
               </p>
             </div>
@@ -125,9 +125,9 @@ export default function Home() {
               Projects that I&apos;m proud of
             </h2>
             <p className="text-black/80 mt-1 text-sm">
-              I document and open source nearly every engagement so other
-              product teams can learn, remix, and ship better customer
-              experiences.
+              For me share is the best way to help others and learn at the same
+              time.
+              <br /> That is why I open source almost all of my projects.
             </p>
           </header>
           <ProjectList />

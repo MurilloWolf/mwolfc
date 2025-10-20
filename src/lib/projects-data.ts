@@ -33,6 +33,35 @@ export const CATEGORY_ORDER: ProjectCategory[] = [
 
 export const PROJECTS: ProjectEntry[] = [
   {
+    slug: "velox-project",
+    category: "projects",
+    title: "VELOX",
+    description: "A easy way to find street racing events happening near you.",
+    linkLabel: "View Project",
+    tags: ["Express", "TypeScript", "Node.js", "React", "Full Stack"],
+    publishedAt: "2025-10-20",
+    readingTime: "12 min",
+    bodyFile: "velox-project.mdx",
+    externalUrl: "http://www.veloxrunning.com",
+  },
+  {
+    slug: "there-is-no-good-software",
+    category: "articles",
+    title: "There Is No Good Software",
+    description:
+      "A reflection on perfectionism in software development and why the pursuit of perfect code prevents us from building functional solutions that can change our lives.",
+    linkLabel: "Read Article",
+    tags: [
+      "Software Development",
+      "Career",
+      "Personal Growth",
+      "Entrepreneurship",
+    ],
+    publishedAt: "2025-10-16",
+    readingTime: "7 min",
+    bodyFile: "there-is-no-good-software.mdx",
+  },
+  {
     slug: "the-art-of-talking-to-machines",
     category: "articles",
     title: "The Art of Talking to Machines",
@@ -81,22 +110,6 @@ export const PROJECTS: ProjectEntry[] = [
     publishedAt: "2025-10-01",
     readingTime: "10 min",
     bodyFile: "chatbot-gpt.mdx",
-  },
-  {
-    slug: "there-is-no-good-software",
-    category: "articles",
-    title: "There Is No Good Software",
-    description: "A reflection on perfectionism in software development.",
-    linkLabel: "Read Article",
-    tags: [
-      "Software Development",
-      "Career",
-      "Personal Growth",
-      "Entrepreneurship",
-    ],
-    publishedAt: "2025-10-16",
-    readingTime: "7 min",
-    bodyFile: "there-is-no-good-software.mdx",
   },
 ];
 

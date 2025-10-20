@@ -1,0 +1,163 @@
+<img
+  src="/articles/velox-x-logo.png"
+  alt="Velox simplify logo - X"
+  className="w-full rounded-xl border border-muted"
+/>
+## My Journey and the Birth of Velox
+
+I’ve always enjoyed running and taking part in local street races. Even though I’m not the fastest, I’ve always loved being part of it.  
+Last year, I decided to challenge myself — not only by running my first half marathon but also by creating a running group with my friends: the **Dash Running Club**.
+
+During that time, I noticed a problem. There were many companies organizing races, but the information was scattered across platforms, websites, and Instagram pages.  
+We had to manually share the main races, dates, locations, and registration links in our WhatsApp group.  
+That’s when the idea of automating this process came up.
+
+---
+
+**Velox** was born from the need to centralize and organize all running-related information in one place.  
+We don’t create or sponsor events (yet). Our goal is to make runners’ lives easier by collecting and organizing race data across São Paulo.
+
+Today, we offer our [online platform](http://www.veloxrunning.com), our [race calendar](http://www.veloxrunning.com/calendar), and our [Telegram bot](https://web.telegram.org/a/#8475526575).
+
+---
+
+## Features
+
+### **Online Calendar**
+
+We list races across São Paulo and the surrounding region in a single, easy-to-use
+calendar. You can find all the details about your next race without searching through
+multiple websites or organizers.
+
+### **Telegram Bot**
+
+Our bot is available 24/7 to assist runners.  
+It can find races, list event details, share Google Maps locations, race times, and even the weather forecast.  
+It also works inside private Telegram groups without extra setup — just add it, and it runs smoothly.
+
+### **AI Chat**
+
+After years of working in **Customer Experience (CX)**, I built a custom chat system for Velox.  
+It can handle complex questions about the platform, events, and public information, helping users find what they need effortlessly.
+
+---
+
+## Technical Overview
+
+<div className="mt-6 flex flex-col gap-6 md:flex-row md:items-start">
+  <img
+    src="/articles/velox-arch.png"
+    alt="Velox software arch"
+    className="w-full  rounded-xl"
+  />
+
+</div>
+
+Velox is built on three main services that communicate through well-defined contracts: the **Back-end**, the **Front-end**, and the **Chatbot**.  
+Each service is deployed independently but follows shared standards for type safety, automation, and consistency.  
+The architecture emphasizes modularity, domain isolation, and observability — key principles that support scalability and reliability.
+
+<h6 className="font-semibold uppercase text-lg">Architecture explanations</h6>
+<div>
+
+<div className=" flex flex-col gap-4">
+<span className="font-semibold">
+  1 - Why 2 Front-ends?
+</span>
+
+For me, it doesn’t make sense to have both the user interface and the
+admin dashboard in the same front-end project. If I did that, I’d need
+a complex and highly reliable authentication system, which would add
+unnecessary complexity to a simple user-facing application.
+
+Of course, my management tool includes login and protection layers,
+but since it’s an internal tool used only by me, keeping it separate
+was a deliberate design choice for the initial scope of the project.
+
+</div>
+
+<div className="py-6 flex flex-col gap-4">
+<span className="font-semibold">
+  2 - Using OpenAI directly on the Front-end/Bot
+</span>
+
+I use direct integration with OpenAI on both the front-end and the bot.
+This allows the system to understand user messages naturally — in both
+the bot interactions and the embedded web chat.
+
+This approach reduces response time by avoiding unnecessary calls to
+the back-end. When dealing with a chat-based tool, response speed is
+crucial for a good experience.
+
+To prevent abuse or security issues, both projects include protection
+layers — such as input sanitization, structured prompts, and strict
+rate limiting.
+
+</div>
+
+</div>
+
+### **Back-end**
+
+The back-end manages all business logic and data persistence.  
+It follows a **Clean Architecture** approach with well-structured layers and explicit interfaces.  
+Each endpoint handles authorization, validation, and response formatting in a consistent pattern to ensure security and predictability.  
+Data validation and monitoring tools ensure input safety, while observability is built in to measure performance, errors, and user activity.
+
+### **Front-end**
+
+The front-end transforms raw data into a clear, engaging experience for both runners and administrators.  
+It uses a **modern React and Next.js** stack with hybrid rendering (SSR + SSG) and reusable components across public and internal views.  
+The design system ensures accessibility, visual consistency, and smooth animations, while telemetry tools capture engagement and user behavior metrics.  
+The platform is designed for omnichannel use — from public pages and event listings to dashboards that track participation and insights.
+
+### **Chatbot**
+
+The chatbot follows a modular, **Hexagonal Architecture** pattern to keep core logic independent of the delivery channel.  
+It supports multiple commands such as `/start`, `/help`, and `/races`, and integrates with AI to understand natural language inputs that don’t match predefined commands.  
+When users send unrecognized messages, the bot interprets intent and responds intelligently — either suggesting the right command or delivering a helpful answer.  
+This architecture also enables expansion to future platforms like **WhatsApp**, **Discord**, or **Slack** without major code changes.
+
+---
+
+## More than i ideia
+
+Velox started as a small side project meant to make my life easier.  
+Over time, I realized it was much bigger than I first imagined — something that could actually help many more people than I expected.  
+It’s not the first project I’ve brought to life, but it’s the one that truly has the potential to grow.
+
+<div className="mt-6 flex flex-col gap-6 md:flex-row md:items-start">
+  <img
+    src="/articles/velox-id.png"
+    alt="Velox identity"
+    className="w-full  rounded-xl border border-muted"
+  />
+
+  <div className="flex-1 space-y-4">
+      <div className="space-y-2">
+   
+      </div>
+  </div>
+</div>
+
+---
+
+## Business Model
+
+Currently, there’s no platform in Brazil — or elsewhere — that centralizes running events the way Velox does.  
+The project started as a personal initiative and is now sustained through community support and early-stage partnerships with local brands and event organizers.
+
+<div className="mt-6 flex flex-col gap-6 md:flex-row md:items-start">
+  <img
+    src="/articles/velox.png"
+    alt="Velox simplify logo - X"
+    className="w-full max-w-sm rounded-xl"
+  />
+
+  <div className="flex-1 space-y-4">
+      <div className="space-y-2">
+         As our user base grows, we plan to introduce **targeted marketing opportunities** for sponsors in the running and sports ecosystem, ensuring the project remains **sustainable and community-driven**.
+      </div>
+  </div>
+</div>
+Thanks to free and open-source resources, our operating costs remain minimal — roughly **$15 per month** is enough to keep everything running smoothly.

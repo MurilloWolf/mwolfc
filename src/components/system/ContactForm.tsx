@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 
 import { Textarea, Input, Button } from "@/components/ui";
 import { Loader2, MessageCircle } from "lucide-react";
+import { sendContactEmail } from "@/server/actions/contact";
 
 export default function ContactForm({ onClose }: { onClose?: () => void }) {
   const [formData, setFormData] = useState({
@@ -28,6 +29,18 @@ export default function ContactForm({ onClose }: { onClose?: () => void }) {
 
     return undefined;
   }, [status]);
+
+  useEffect(() => {
+    if (status !== "success" || !onClose) {
+      return;
+    }
+
+    const timeout = setTimeout(() => {
+      onClose();
+    }, 2400);
+
+    return () => clearTimeout(timeout);
+  }, [status, onClose]);
 
   const handleChange = (
     field: "name" | "email" | "message"
@@ -70,20 +83,25 @@ export default function ContactForm({ onClose }: { onClose?: () => void }) {
     setErrorMessage("");
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 900));
+      const result = await sendContactEmail({ name, email, message });
+
+      if (!result.success) {
+        setStatus("error");
+        setErrorMessage(
+          result.error ||
+            "Sorry, we can't deliver your message. Try another way."
+        );
+        return;
+      }
 
       setFormData({ name: "", email: "", message: "" });
       setStatus("success");
-
-      if (onClose) {
-        setTimeout(() => {
-          onClose();
-        }, 4000);
-      }
     } catch (error) {
       console.error("Error sending form:", error);
       setStatus("error");
-      setErrorMessage("Sorry, something went wrong. Please try again.");
+      setErrorMessage(
+        "Sorry, we can't deliver your message. Try another way."
+      );
     }
   };
 

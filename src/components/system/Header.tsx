@@ -134,7 +134,10 @@ export default function Header() {
                 Send Me a Message <Send className=" h-4 w-4" />
               </Button>
             </AlertDialogTrigger>
-            <AlertDialogContent className="font-medium font-sans bg-gray-100 rounded-lg">
+            <AlertDialogContent
+              className="font-medium font-sans bg-gray-100 rounded-lg"
+              onCloseAutoFocus={(event) => event.preventDefault()}
+            >
               <AlertDialogHeader>
                 <AlertDialogTitle className="text-2xl">
                   Get in Touch
@@ -166,6 +169,7 @@ export default function Header() {
               "backdrop-blur-md supports-[backdrop-filter]:bg-white/95",
               "border-l border-white/20 dark:border-white/10 dark:bg-zinc-900/85"
             )}
+            onCloseAutoFocus={(event) => event.preventDefault()}
           >
             <SheetTitle className="font-mono text-lg font-semibold uppercase tracking-[0.3em] text-zinc-900 dark:text-zinc-100">
               mwolfc
@@ -191,7 +195,10 @@ export default function Header() {
                   Send Me a Message <Send className=" h-4 w-4" />
                 </Button>
               </AlertDialogTrigger>
-              <AlertDialogContent className="font-medium font-sans bg-gray-100 rounded-lg">
+              <AlertDialogContent
+                className="font-medium font-sans bg-gray-100 rounded-lg"
+                onCloseAutoFocus={(event) => event.preventDefault()}
+              >
                 <AlertDialogHeader>
                   <AlertDialogTitle className="text-2xl">
                     Get in Touch

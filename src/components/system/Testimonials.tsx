@@ -21,7 +21,7 @@ const testimonials: Testimonial[] = [
     role: "Founder - Codante.io",
     linkedin: "https://www.linkedin.com/in/robertotcestari/",
     avatar:
-      "https://media.licdn.com/dms/image/v2/D4D03AQFVPO19nlFD2w/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1684353646128?e=1763596800&v=beta&t=cnbKOIMQe3IWcjaol_VKDMGo2sWiy30Vdi1asgbEKFI",
+      "https://velox-images-bucket.s3.sa-east-1.amazonaws.com/public/mwolfc/cestari-linkedin.jpeg",
   },
   {
     content:
@@ -30,7 +30,7 @@ const testimonials: Testimonial[] = [
     role: "Sr Software Engineer - ElectroNeek",
     linkedin: "https://www.linkedin.com/in/leticiabora/",
     avatar:
-      "https://media.licdn.com/dms/image/v2/D4D03AQHpQJHlIe7TWw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1666738058395?e=1763596800&v=beta&t=QpHe5nmGApEklpakVmqlyMba1on2RhBj9aEoWVxB-nk",
+      "https://velox-images-bucket.s3.sa-east-1.amazonaws.com/public/mwolfc/leticia-linkedin.jpeg",
   },
   {
     content:
@@ -39,7 +39,7 @@ const testimonials: Testimonial[] = [
     role: "Sr Software Engineer - Mercado livre",
     linkedin: "https://www.linkedin.com/in/joao-antonio-filgueiras/",
     avatar:
-      "https://media.licdn.com/dms/image/v2/D4D03AQHQauQxMCIHIQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1718219073151?e=1763596800&v=beta&t=IBtnbxJGFyEejSW1HVV-sVySIDj9HhSsdvBGAMAvCZs",
+      "https://velox-images-bucket.s3.sa-east-1.amazonaws.com/public/mwolfc/antonio-linkedin.jpeg",
   },
   {
     content:
@@ -48,7 +48,7 @@ const testimonials: Testimonial[] = [
     role: "Founder - Eventou & Proagil",
     linkedin: "https://www.linkedin.com/in/rafaelgustavolv/",
     avatar:
-      "https://media.licdn.com/dms/image/v2/C4D03AQG057xv0oZUeg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1572375442209?e=1763596800&v=beta&t=rI_7GIxaOQ6ZwhmbRmMl50VwKJ0j7cGN9JVqND18ANs",
+      "https://velox-images-bucket.s3.sa-east-1.amazonaws.com/public/mwolfc/rafa-linkedin.jpeg",
   },
   {
     content:
@@ -58,7 +58,7 @@ const testimonials: Testimonial[] = [
     linkedin:
       "https://www.linkedin.com/in/francisco-virginio-maracci-30b6632a/",
     avatar:
-      "https://media.licdn.com/dms/image/v2/C4D03AQFWDfnC9IyfEw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1621391168378?e=1763596800&v=beta&t=NOa31kNYxvYvGYMa2_Ok_L0TZAaeeepNb4Xs5Bi-44E",
+      "https://velox-images-bucket.s3.sa-east-1.amazonaws.com/public/mwolfc/chico-linkedin.jpeg",
   },
   {
     content:
@@ -67,7 +67,16 @@ const testimonials: Testimonial[] = [
     role: "Sr Software Engineer - Mercado Livre",
     linkedin: "https://www.linkedin.com/in/joao96neto/",
     avatar:
-      "https://media.licdn.com/dms/image/v2/D4D03AQH8BM8zruvYDg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1714445860897?e=1763596800&v=beta&t=SiTWYTnBya7vPaUR834CxnpkA3M8T8zo2DGFL9rO07g",
+      "https://velox-images-bucket.s3.sa-east-1.amazonaws.com/public/mwolfc/joao-linkedin.jpeg",
+  },
+  {
+    content:
+      "His reliability, positive attitude, and natural sense of humor made him not only a pleasure to work with but also a reference point for motivation and engagement within the team",
+    author: "Marcelo Cajueiro",
+    role: "Engineering Manager - Portábilis",
+    linkedin: "https://www.linkedin.com/in/marcelocajueiro/",
+    avatar:
+      "https://velox-images-bucket.s3.sa-east-1.amazonaws.com/public/mwolfc/marcelo-linkedin.jpeg",
   },
 ];
 
